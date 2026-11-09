@@ -1,0 +1,28 @@
+# 비밀번호는 .env에서 읽음 (.env.example 참고)
+services:
+  oracle:
+    image: gvenzl/oracle-free:23-slim
+    container_name: stock-oracle
+    ports:
+      - "1521:1521"
+    environment:
+      - ORACLE_PASSWORD=${ORACLE_DB_PASSWORD:?.env에 ORACLE_DB_PASSWORD를 설정하세요}
+    volumes:
+      - oracle-data:/opt/oracle/oradata
+      - ./db/init.sql:/container-entrypoint-initdb.d/01_init.sql:ro  # 최초 생성 시 테이블 생성
+    restart: unless-stopped
+
+  neo4j:
+    image: neo4j:5.26-community
+    container_name: stock-knowledge-graph
+    ports:
+      - "7474:7474"  # 브라우저 UI (http://localhost:7474)
+      - "7687:7687"  # Bolt 프로토콜 (파이썬 연결용)
+    environment:
+      - NEO4J_AUTH=neo4j/${NEO4J_PASSWORD:?.env에 NEO4J_PASSWORD를 설정하세요}
+    volumes:
+      - ./neo4j/data:/data
+    restart: unless-stopped  # 도커가 켜지면 자동으로 같이 켜짐 (재부팅 후 수동 start 불필요)
+
+volumes:
+  oracle-data:

@@ -1,0 +1,26 @@
+# 비밀 정보
+.env
+.env.*
+my_portfolio.py
+!.env.example
+
+# DB 데이터
+neo4j/data/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# 개인 기록 / 예전 Gemini 버전 (공유 대상 아님)
+docs/gemini_conversation.md
+sentiment_agent_gemini_backup.py
+test.py
+
+# 에디터/OS
+.vscode/
+.idea/
+.cursor/
+Thumbs.db
+.DS_Store

@@ -1,8 +1,8 @@
 # AI 주식 심리 분석 에이전트
 
-yfinance 시세 → Claude AI 시장 심리 분석 → Oracle 적재 → Neo4j 지식 그래프 → GraphRAG 질의 / MCP 서버
+시세 → Claude AI 시장 심리 분석 → Oracle 적재 → Neo4j 지식 그래프 → GraphRAG 질의 / MCP 서버
 
-> 개인 학습용 프로젝트입니다. 분석 결과는 투자 조언이 아니며, 자체 검증 결과 다음 날 주가 예측력은 확인되지 않았습니다 (`docs/2026-10-25_mcp_test_and_evaluation.md`).
+> 개인 학습용 프로젝트입니다. 분석 결과는 투자 조언이 아닙니다
 
 ## 구성
 
